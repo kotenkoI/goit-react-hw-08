@@ -3,12 +3,12 @@
   text-decoration: none;
   padding: 12px;
   font-weight: 700;
-  color: #2a363b;
+  color:#d2ff49;
   border-radius: 5px;
 }
 
 .link.active {
-  color: #e84a5f;
+  color: #4ae8a9;
 }
 .nav{
   margin-left: 10px ;

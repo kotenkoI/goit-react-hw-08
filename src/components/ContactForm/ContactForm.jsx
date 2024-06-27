@@ -61,7 +61,7 @@ export default function ContactForm() {
       validationSchema={validationControl}
     >
       <Form className={css.formStyle}>
-        <div className={css.fialdStyle}>
+        <div className={css.fieldStyle}>
           <label htmlFor={nameFieldId}>Name</label>
           <Field
             className={css.field}
@@ -72,7 +72,7 @@ export default function ContactForm() {
           <ErrorMessage className={css.err} name="name" component="span" />
         </div>
 
-        <div className={css.fialdStyle}>
+        <div className={css.fieldStyle}>
           <label htmlFor={numberFieldId}>Number</label>
           <Field
             className={css.field}
