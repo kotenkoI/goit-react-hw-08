@@ -37,6 +37,12 @@ padding: 10px;
    color: white;
 }
 .err{
-  background-color:  #fb30c8;
+  background-color:  rgb(251, 48, 200);
   
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
 }

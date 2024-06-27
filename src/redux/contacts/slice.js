@@ -1,7 +1,8 @@
-import startContacts from "../components/contact.json";
-import { createSelector, createSlice, nanoid } from "@reduxjs/toolkit";
-import { fetchContacts, addContact, deleteContact } from "./contactsOps";
-import { selectContacts, selectNameFilter } from "./selectors";
+import { createSelector, createSlice} from "@reduxjs/toolkit";
+import { fetchContacts, addContact, deleteContact } from "./operations";
+import { selectContacts } from "./selectors";
+import { selectNameFilter } from "../filters/selectors";
+import { logOut } from "../auth/operations";
 const contactsSlice = createSlice({
   name: "contacts",
   initialState: {
@@ -54,19 +55,27 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(logOut.fulfilled, (state) => {
+       
+        state.items = [];
+        state.loading = false;
+        state.error= null;
       });
   },
 });
 
 export const visibleContacts = createSelector(
   [selectContacts, selectNameFilter],
-  (contacts, filtersContact) => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filtersContact.toLowerCase())
-    );
+  (contacts, selectNameFilter) => {
+    return contacts.filter((contact) => {
+      const filterName = contact.name
+        .toLowerCase()
+        .includes(selectNameFilter.toLowerCase());
+      const filterNumber = contact.number.includes(selectNameFilter);
+      return filterName || filterNumber;
+    });
   }
 );
-
-
 
 export const contactReducer = contactsSlice.reducer;
