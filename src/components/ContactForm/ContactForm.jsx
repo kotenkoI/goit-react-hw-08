@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 import { addContact } from "../../redux/contacts/operations";
 import { useDispatch } from "react-redux";
-import css from "./ContactForm.module.css";
+import css from "../ContactForm/ContactForm.module.css";
 
   export const validationControl = Yup.object().shape({
     name: Yup.string()
