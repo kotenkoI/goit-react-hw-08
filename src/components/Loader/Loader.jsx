@@ -1,19 +1,4 @@
-import { Hourglass } from "react-loader-spinner";
-import css from './Loader.module.css'
-export default function Loader(){
-
-    return (
-      <div>
-        <Hourglass
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="hourglass-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          colors={["#306cce", "#72a1ed"]}
-        />
-        <p>Loading data, please wait...</p>
-      </div>
-    );
-}
+import React from 'react'; 
+import { CirclesWithBar } from 'react-loader-spinner'; 
+const LoaderComponent = () => { return ( <div className="loader-container"> <CirclesWithBar visible={true} height="80" width="80" ariaLabel="circles-with-bar-loading" wrapperStyle={{}} wrapperClass="" colors={["#d2ff49", "#41ffbd"]} /> </div> ); }; 
+export default LoaderComponent;
